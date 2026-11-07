@@ -1,0 +1,9 @@
+tmp/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+.venv/
+__pycache__/
+.DS_Store
