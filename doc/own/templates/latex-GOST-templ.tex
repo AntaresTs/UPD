@@ -1,0 +1,129 @@
+\documentclass[14pt, a4paper]{extarticle}
+\usepackage[utf8]{inputenc}						% Setting encoding
+\usepackage[russian]{babel}						% Set russian landuage 
+\usepackage{indentfirst}						
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{caption}							% Пакет для настройки плавующих элементов (Рисунки и т.д)
+\usepackage{graphicx}
+\usepackage{chngcntr}							% Для привязки нумерации русунка к сеуции
+\usepackage{float}								% Для использования H для корректного отображения рисунков
+\usepackage{url}
+\usepackage{microtype}
+
+
+\usepackage{tempora} 						 	% Times New Roman for text
+\usepackage[bigdelims,vvarbb]{newtxmath}	 	% math italic letters from Nimbus Roman
+\usepackage[cal=boondoxo]{mathalfa}  			% mathcal from STIX, unslanted a bit
+
+\usepackage{longtable}
+\usepackage{xltabular}
+\usepackage{ragged2e}
+\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
+
+\babelfont[russian]{rm}[
+Scale=MatchUppercase,
+ItalicFont={Tempora-Italic.otf},
+BoldFont={Tempora-Bold.otf},
+BoldItalicFont={Tempora-BoldItalic.otf}
+]{Tempora-Regular.otf}
+
+% Рисунки
+\counterwithin{figure}{section}					% Сама привязка рисунка
+
+\captionsetup[figure]{
+	labelsep=endash,								% Изменяем двоеточее на тире
+	name={Рисунок}								% Изменение подписи рисунка
+}				
+
+\setlength{\intextsep}{1\baselineskip}  % Отступ вокруг figure
+
+% Отступы
+\geometry{left=3cm, right=1.5cm, top=2cm, bottom=2cm} % Отступы
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+
+% Разделы
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{1.25cm}% 
+	{-3.5ex \@plus - 1ex \@minus -.2ex}% 
+	{2.3ex \@plus.2ex}%
+	{
+		\bfseries
+		\fontsize{16}{1.5}\selectfont
+	}}
+
+\renewcommand{\thesection}{\arabic{section}}					% redefines the section numbering format 
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\space}
+
+\makeatother
+
+
+\begin{document}
+	\begin{titlepage}
+		\centering
+		Министерство науки и высшего образования Российской Федерации
+		
+		Федеральное государственное автономное образовательное учреждение высшего образования
+		
+		\MakeUppercase{Томский государственный университет систем управления и радиоэлектроники (ТУСУР)}
+		
+		\vspace{1\baselineskip}
+		
+		[Передовая инженерная школа (ПИШ)]
+		
+		\vspace{2\baselineskip}
+		
+		{\bfseries\MakeUppercase{
+				
+				[Название работы]
+				
+		}}
+		
+		Отчет по [тип работы] по дисциплине "[дисциплина]"
+		
+		\vspace{1\baselineskip}
+		
+		\begin{flushright}
+			Студент(ы) гр. 362-2:
+			
+			{\rule{1.5cm}{0.6pt} И. О. Фамилия}
+			
+			
+			"\rule{1.5cm}{0.6pt}" \rule{2cm}{0.6pt} {\the\year}г.
+			
+			\vspace*{1\baselineskip}
+			
+			Проверил:
+			
+			Должность (Доцент кафедры ПрЭ):
+			
+			{\rule{1.5cm}{0.6pt} И. О. Фамилия}
+			
+		\end{flushright}
+		
+		\vfill
+		{Томск \the\year}
+		
+	\end{titlepage}
+	
+	\textbf{\MakeUppercase{Введение}}
+	
+	
+	
+	
+	\clearpage
+	\section{Основная часть}
+	
+	
+	
+	\clearpage
+	
+	\section{Примечания}
+	
+	
+	
+	\end{document}
+

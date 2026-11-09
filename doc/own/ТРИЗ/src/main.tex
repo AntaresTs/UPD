@@ -1,0 +1,165 @@
+\documentclass[a4paper]{article}
+
+% ===== ПАКЕТЫ ======
+\usepackage{indentfirst}                        
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{caption}                        
+\usepackage{pdfpages}                        
+\usepackage{graphicx}
+\usepackage{chngcntr}                          
+\usepackage{float}                                
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{longtable}                          
+\usepackage{easyReview}
+
+% Библиография
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex}
+
+\usepackage{tocloft}                            
+\usepackage[english,russian]{babel}  % русский язык
+\usepackage{fontspec}
+\usepackage{totcount}		% Для инициилизации счетчиков
+\usepackage{enumitem}		% Для нужного формата списков
+
+\usepackage{longtable}
+\usepackage{xltabular}
+\usepackage{ragged2e}
+\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
+
+\babelfont[russian]{rm}[
+Scale=MatchUppercase,
+ItalicFont={Tempora-Italic.otf},
+BoldFont={Tempora-Bold.otf},
+BoldItalicFont={Tempora-BoldItalic.otf}
+]{Tempora-Regular.otf}
+
+
+
+% ===== БИБЛИОГРАФИЯ =====
+% Для библиографии используем компилятор biber
+%\addbibresource{bibliography.bib} % Название файла с библиографией
+%\bibliographystyle{gost-numeric}                
+
+
+% ===== ОСНОВНЫЕ НАСТРОЙКИ ДЛЯ XeLaTeX =====
+
+
+\setmainfont{Verdana}
+\setlength{\emergencystretch}{3em}  % помогает избежать вылезания текста за края
+
+\usepackage[bigdelims,vvarbb]{newtxmath}
+\usepackage[cal=boondoxo]{mathalfa}
+
+\usepackage[fontsize=14pt]{fontsize}
+
+% ===== РАМКИ =====
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage{ifthen}
+\usepackage{lipsum}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{empty}
+\fancyhf{}
+
+\newcounter{pagecount}
+
+% ===== НАСТРОЙКИ ПОДПИСЕЙ И ОТСТУПОВ =====
+\counterwithin{figure}{section}                 
+
+\captionsetup[figure]{
+	labelsep=endash,
+	name={Рисунок}
+}                
+
+\setlength{\intextsep}{1\baselineskip}
+
+\geometry{left=3cm, right=1.5cm, top=2cm, bottom=2.5cm}
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+% ===== ПЕРЕОПРЕДЕЛЕНИЕ РАЗДЕЛОВ =====
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{1.25cm}% 
+	{-3.5ex \@plus -1ex \@minus -.2ex}% 
+	{2.3ex \@plus.2ex}%
+	{
+		\clearpage
+		\bfseries
+		\fontsize{16}{1.5}\selectfont
+}}
+
+\renewcommand\subsection{\@startsection{subsection}{2}{1.25cm}% 
+	{-3.5ex \@plus -1ex \@minus -.2ex}% 
+	{2.3ex \@plus.2ex}%
+	{
+		\bfseries
+		\fontsize{14}{1.5}\selectfont
+}}
+
+\renewcommand\subsubsection{\@startsection{subsubsection}{2}{1.25cm}% 
+	{-3.5ex \@plus -1ex \@minus -.2ex}% 
+	{2.3ex \@plus.2ex}%
+	{
+		\bfseries
+		\fontsize{14}{1.5}\selectfont
+}}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname\space}
+\makeatother
+
+% ===== ОГЛАВЛЕНИЕ =====
+% Включаем русские названия
+\addto\captionsrussian{%
+	\renewcommand{\contentsname}{Оглавление}%
+	\renewcommand{\refname}{Список использованных источников}%
+}
+
+% Настройка tocloft для правильных переносов
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\bfseries}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+
+% ВКЛЮЧАЕМ ПЕРЕНОСЫ в оглавлении — это ключевое!
+\renewcommand{\cftsecfont}{\normalfont\raggedright}  % вместо \normalfont
+\renewcommand{\cftsecpagefont}{\normalfont}
+%\setlength{\cftsecnumwidth}{2.5em}  % увеличиваем место под номер секции
+%\setlength{\cftsubsecnumwidth}{3.5em}  % для подсекций
+
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.5em}
+\renewcommand{\numberline}[1]{#1~}
+
+
+% -------------------------------------------------
+
+
+\begin{document}
+	
+	\begin{titlepage}
+		
+		Le glori a vulpes!
+		
+		Слава лисам
+		
+		
+	\end{titlepage}	
+	
+	\section{Заголовок 1-го уровня}
+		\subsection{Заголовок 2-го уровня}
+			\subsubsection{Заголовок 3-го уровня}
+	
+	% ==========================
+%	\printbibliography
+	
+\end{document}
